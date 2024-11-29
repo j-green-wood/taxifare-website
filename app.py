@@ -7,7 +7,7 @@ st.markdown(''' # Estimate your taxi fare! 🚕💰''')
 st.markdown(''' Please enter the following information regarding your next ride:''')
 
 
-pickup_time = st.date_input('Enter the pickup time: '),
+pickup_time = st.text_input('Enter the pickup time: '),
 pickup_longitude = st.number_input('Enter the pickup longitude: '),
 pickup_latitude = st.number_input('Enter the pickup latitude: '),
 dropoff_longitude = st.number_input('Enter the dropoff longitude: '),
@@ -25,6 +25,6 @@ ride_info = {
 
 url = 'https://taxifare.lewagon.ai/predict'
 pred = requests.get(url, ride_info).json()
-final_pred = pred
+final_pred = pred['fare']
 
 st.markdown(f'This ride will cost you: ${final_pred}')
