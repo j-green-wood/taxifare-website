@@ -20,7 +20,7 @@ ride_info = {
     'pickup_latitude': pickup_latitude,
     'dropoff_longitude': dropoff_longitude,
     'dropoff_latitude': dropoff_latitude,
-    'passenger_count': passenger_count
+    'passenger_count': int(passenger_count)
 }
 
 url = 'https://taxifare.lewagon.ai/predict'
