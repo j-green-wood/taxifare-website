@@ -3,10 +3,10 @@ import datetime
 import requests
 import pandas as pd
 
-st.markdown(''' ## Estimate your taxi fare! 🚕💰''')
+st.markdown(''' # Estimate your taxi fare! 🚕💰''')
+st.markdown(''' ## Please enter the following information regarding your next ride:''')
 
 def get_input():
-    st.markdown(''' # Please enter the following information regarding your next ride:''')
     input_items = {
     'pickup time': st.date_input('Enter the pickup time: ', datetime.date(2019, 7, 6)),
     'pickup longitude': st.number_input('Enter the pickup longitude: '),
@@ -16,9 +16,13 @@ def get_input():
     'passenger count': st.number_input('Enter the passenger count: ')
     }
     time, pickup_longitude,pickup_latitude,dropoff_longitude, dropoff_latitude, passengers  = input_items.values()
+
     st.write('Your ride details are: Time: ', time , 'Pickup Longitude: ', pickup_longitude, 'Pickup Latitude: ', pickup_latitude, 'Dropoff Longitude: ', dropoff_longitude, 'Dropoff Latitude: ', dropoff_latitude, 'Passenger Count: ', passengers)
-    return input_items
+    return print(input_items)
+
 ride_info = get_input()
+
+print(ride_info)
 
 
 url = 'https://taxifare.lewagon.ai/predict'
