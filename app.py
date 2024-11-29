@@ -14,8 +14,6 @@ dropoff_longitude = st.number_input('Enter the dropoff longitude: '),
 dropoff_latitude = st.number_input('Enter the dropoff latitude: '),
 passenger_count = st.number_input('Enter the passenger count: ')
 
-st.write('Your ride details are: Time: ', pickup_time , 'Pickup Longitude: ', pickup_longitude, 'Pickup Latitude: ', pickup_latitude, 'Dropoff Longitude: ', dropoff_longitude, 'Dropoff Latitude: ', dropoff_latitude, 'Passenger Count: ', passengers)
-
 ride_info = {
     'pickup_datetime': pickup_time,
     'pickup_longitude': pickup_longitude,
