@@ -1,26 +1,10 @@
 import streamlit as st
 import datetime
 
-'''
-# TaxiFareModel front
-'''
-
 st.markdown(''' # Estimate your taxi fare! 🚕💰''')
 
-
-'''
-## Here we would like to add some controllers in order to ask the user to select the parameters of the ride
-
-1. Let's ask for:
-- date and time
-- pickup longitude
-- pickup latitude
-- dropoff longitude
-- dropoff latitude
-- passenger count
-'''
-
 def get_input():
+    st.write('please enter the following information regarding your next ride:')
     input_items = {
     'pickup time': st.date_input('Enter the pickup time: ', datetime.date(2019, 7, 6)),
     'pickup longitude': st.number_input('Enter the pickup longitude: '),
