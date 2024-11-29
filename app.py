@@ -23,6 +23,6 @@ ride_info = get_input()
 
 url = 'https://taxifare.lewagon.ai/predict'
 pred = requests.get(url, ride_info).json()
-final_pred = pred['fare']
+final_pred = pred
 
 st.markdown(f'This ride will cost you: ${final_pred}')
