@@ -4,26 +4,26 @@ import requests
 import pandas as pd
 
 st.markdown(''' # Estimate your taxi fare! 🚕💰''')
-st.markdown(''' ## Please enter the following information regarding your next ride:''')
+st.markdown(''' Please enter the following information regarding your next ride:''')
 
-def get_input():
-    input_items = {
-    'pickup time': st.date_input('Enter the pickup time: '),
-    'pickup longitude': st.number_input('Enter the pickup longitude: '),
-    'pickup latitude': st.number_input('Enter the pickup latitude: '),
-    'dropoff longitude': st.number_input('Enter the dropoff longitude: '),
-    'dropoff latitude': st.number_input('Enter the dropoff latitude: '),
-    'passenger count': st.number_input('Enter the passenger count: ')
-    }
-    time, pickup_longitude,pickup_latitude,dropoff_longitude, dropoff_latitude, passengers  = input_items.values()
 
-    st.write('Your ride details are: Time: ', time , 'Pickup Longitude: ', pickup_longitude, 'Pickup Latitude: ', pickup_latitude, 'Dropoff Longitude: ', dropoff_longitude, 'Dropoff Latitude: ', dropoff_latitude, 'Passenger Count: ', passengers)
-    return st.write(input_items)
+pickup_time = st.date_input('Enter the pickup time: '),
+pickup_longitude = st.number_input('Enter the pickup longitude: '),
+pickup_latitude = st.number_input('Enter the pickup latitude: '),
+dropoff_longitude = st.number_input('Enter the dropoff longitude: '),
+dropoff_latitude = st.number_input('Enter the dropoff latitude: '),
+passenger_count = st.number_input('Enter the passenger count: ')
 
-ride_info = get_input()
+st.write('Your ride details are: Time: ', pickup_time , 'Pickup Longitude: ', pickup_longitude, 'Pickup Latitude: ', pickup_latitude, 'Dropoff Longitude: ', dropoff_longitude, 'Dropoff Latitude: ', dropoff_latitude, 'Passenger Count: ', passengers)
 
-st.write(ride_info)
-
+ride_info = {
+    'pickup_datetime': pickup_time,
+    'pickup_longitude': pickup_longitude,
+    'pickup_latitude': pickup_latitude,
+    'dropoff_longitude': dropoff_longitude,
+    'dropoff_latitude': dropoff_latitude,
+    'passenger_count': passenger_count
+}
 
 url = 'https://taxifare.lewagon.ai/predict'
 pred = requests.get(url, ride_info).json()
