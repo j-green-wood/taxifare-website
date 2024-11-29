@@ -8,7 +8,7 @@ st.markdown(''' ## Please enter the following information regarding your next ri
 
 def get_input():
     input_items = {
-    'pickup time': st.date_input('Enter the pickup time: ', datetime.date(2019, 7, 6)),
+    'pickup time': st.date_input('Enter the pickup time: '),
     'pickup longitude': st.number_input('Enter the pickup longitude: '),
     'pickup latitude': st.number_input('Enter the pickup latitude: '),
     'dropoff longitude': st.number_input('Enter the dropoff longitude: '),
@@ -18,11 +18,11 @@ def get_input():
     time, pickup_longitude,pickup_latitude,dropoff_longitude, dropoff_latitude, passengers  = input_items.values()
 
     st.write('Your ride details are: Time: ', time , 'Pickup Longitude: ', pickup_longitude, 'Pickup Latitude: ', pickup_latitude, 'Dropoff Longitude: ', dropoff_longitude, 'Dropoff Latitude: ', dropoff_latitude, 'Passenger Count: ', passengers)
-    return print(input_items)
+    return st.write(input_items)
 
 ride_info = get_input()
 
-print(ride_info)
+st.write(ride_info)
 
 
 url = 'https://taxifare.lewagon.ai/predict'
