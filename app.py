@@ -27,4 +27,4 @@ url = 'https://taxifare.lewagon.ai/predict'
 
 if st.button('Estimate Your ride cost!'):
     pred = requests.get(url, params=ride_info).json()
-    st.markdown(f'This ride will cost you: ${pred}')
+    st.markdown(f'This ride will cost you: ${pred["fare"]}')
